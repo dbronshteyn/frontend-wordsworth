@@ -1,0 +1,53 @@
+/* src/components/FlashcardSetDetail.css */
+
+.flashcard-set-detail {
+    margin-top: 20px;
+}
+
+.flashcard-set-detail h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.flashcard-set-detail p {
+    font-size: 1.2rem;
+    color: #6c757d;
+}
+
+.flashcard-set-detail .btn-outline-secondary {
+    margin-right: 10px;
+}
+
+.flashcard-set-detail .list-group-item {
+    margin-bottom: 10px;
+}
+
+.flashcard-set-detail .flashcard-term,
+.flashcard-set-detail .flashcard-definition {
+    font-size: 1.1rem;
+    color: #495057;
+}
+
+.flashcard-set-detail .flashcard-term {
+    text-align: left;
+}
+
+.flashcard-set-detail .flashcard-definition {
+    text-align: right;
+}
+
+.flashcard-set-detail .delete-icon {
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.2rem;
+    background-color: red;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    transition: transform 0.2s;
+}
+
+.flashcard-set-detail .delete-icon:hover {
+    transform: scale(1.2);
+}

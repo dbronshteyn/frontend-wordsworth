@@ -1,0 +1,9 @@
+.flashcard-set {
+    transition: transform 0.2s ease;
+    text-decoration: none;
+    color: inherit;
+}
+
+.flashcard-set:hover {
+    transform: translateY(-10px);
+}
