@@ -170,8 +170,9 @@ const GraspMode = () => {
             return;
         }
 
-        const nextIndex = (currentFlashcardIndex + 1) % flashcards.length;
-        setCurrentFlashcardIndex(nextIndex);
+        const eligibleFlashcards = flashcards.filter(card => attemptedFlashcards[card.id].correct < 3);
+        const nextIndex = Math.floor(Math.random() * eligibleFlashcards.length);
+        setCurrentFlashcardIndex(flashcards.indexOf(eligibleFlashcards[nextIndex]));
 
         if (Math.random() > 0.5) {
             setMultipleChoiceMode(true);
@@ -275,7 +276,7 @@ const GraspMode = () => {
             {/* Modal for completion */}
             <Modal show={showModal} onHide={() => setShowModal(false)}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Congratulations!</Modal.Title>
+                    <Modal.Title>🎉 Congratulations!</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <p>You have completed the flashcard set!</p>
