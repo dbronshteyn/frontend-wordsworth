@@ -111,7 +111,7 @@ const FlashcardSetDetail = () => {
             ) : (
                 <div>
                     <button className="btn btn-primary" disabled>Grasp</button>
-                    <br />
+                    <br/>
                     <small className="text-muted">Grasp will unlock when you have at least one flashcard</small>
                 </div>
             )}
@@ -184,7 +184,9 @@ const FlashcardSetDetail = () => {
                     <h2 className="mt-4">Flashcards</h2>
                     <ul className="list-group">
                         {flashcards.map((flashcard) => (
-                            <li key={flashcard.id} className="list-group-item d-flex justify-content-between align-items-center" onDoubleClick={(e) => handleFlashcardDoubleClick(flashcard, e)}>
+                            <li key={flashcard.id}
+                                className="list-group-item d-flex justify-content-between align-items-center"
+                                onDoubleClick={(e) => handleFlashcardDoubleClick(flashcard, e)}>
                                 {editingFlashcard && editingFlashcard.id === flashcard.id ? (
                                     <div className="row w-100">
                                         <div className="col-md-5">
@@ -204,8 +206,12 @@ const FlashcardSetDetail = () => {
                                             />
                                         </div>
                                         <div className="col-md-2 d-flex align-items-center">
-                                            <button className="btn btn-success me-2" onClick={handleFlashcardSave}>Save</button>
-                                            <button className="btn btn-secondary" onClick={handleFlashcardCancel}>Cancel</button>
+                                            <button className="btn btn-success me-2"
+                                                    onClick={handleFlashcardSave}>Save
+                                            </button>
+                                            <button className="btn btn-secondary"
+                                                    onClick={handleFlashcardCancel}>Cancel
+                                            </button>
                                         </div>
                                     </div>
                                 ) : (
@@ -218,14 +224,17 @@ const FlashcardSetDetail = () => {
                                                 part.type === 'text' ? (
                                                     <span key={index}>{part.content}</span>
                                                 ) : (
-                                                    <SyntaxHighlighter key={index} language={part.language} style={materialOceanic}>
+                                                    <SyntaxHighlighter key={index} language={part.language}
+                                                                       style={materialOceanic}>
                                                         {part.content}
                                                     </SyntaxHighlighter>
                                                 )
                                             ))}
                                         </div>
                                         <div className="col-md-2 d-flex justify-content-end">
-                                            <button className="delete-icon" onClick={() => handleFlashcardDelete(flashcard.id)}>X</button>
+                                            <button className="delete-icon"
+                                                    onClick={() => handleFlashcardDelete(flashcard.id)}>X
+                                            </button>
                                         </div>
                                     </div>
                                 )}
@@ -252,8 +261,11 @@ const FlashcardSetDetail = () => {
                                         />
                                     </div>
                                     <div className="col-md-2 d-flex align-items-center">
-                                        <button className="btn btn-success me-2" onClick={handleNewFlashcardSave}>Save</button>
-                                        <button className="btn btn-secondary" onClick={handleNewFlashcardCancel}>Cancel</button>
+                                        <button className="btn btn-success me-2" onClick={handleNewFlashcardSave}>Save
+                                        </button>
+                                        <button className="btn btn-secondary"
+                                                onClick={handleNewFlashcardCancel}>Cancel
+                                        </button>
                                     </div>
                                 </div>
                             </li>
@@ -265,6 +277,7 @@ const FlashcardSetDetail = () => {
             <div className="mt-5">
                 <button className="btn btn-success" onClick={handleCreateNewFlashcard}>Create New Flashcard</button>
             </div>
+            <br></br>
         </div>
     );
 };
