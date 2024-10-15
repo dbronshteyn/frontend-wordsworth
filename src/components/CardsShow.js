@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {useParams} from "react-router-dom";
 import {getAllFlashcards} from "../api/flashcardApi";
 import {getFlashcardSetById} from "../api/flashcardSetApi";
+import TextUtils from "../utils/TextUtils";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import {materialOceanic} from "react-syntax-highlighter/dist/esm/styles/prism";
 
@@ -47,30 +48,6 @@ const CardsShow = () => {
     if (flashcards.length === 0) {
         return <div></div>;
     }
-
-    const extractTextAndCode = (definition) => {
-        const codeRegex = /```(\w+)?\s*([\s\S]*?)```/g; // Regex to find content inside ``` ```
-        const parts = [];
-        let lastIndex = 0;
-
-        let match;
-        while ((match = codeRegex.exec(definition)) !== null) {
-            // Push text before the code block
-            if (lastIndex < match.index) {
-                parts.push({ type: 'text', content: definition.slice(lastIndex, match.index) });
-            }
-            // Push the code block with language
-            parts.push({ type: 'code', language: match[1], content: match[2] });
-            lastIndex = match.index + match[0].length; // Update the last index to the end of the current match
-        }
-
-        // Push any remaining text after the last code block
-        if (lastIndex < definition.length) {
-            parts.push({ type: 'text', content: definition.slice(lastIndex) });
-        }
-
-        return parts; // Return array of parts
-    };
 
     const { term, definition } = flashcards[currentCardIndex];
 
@@ -150,7 +127,7 @@ const CardsShow = () => {
                                 }}
                             >
                                 <Card.Body className="text-center">
-                                    <Card.Title>{extractTextAndCode(definition).map((part, index) => (
+                                    <Card.Title>{TextUtils.extractTextAndCode(definition).map((part, index) => (
                                         part.type === 'text' ? (
                                             <span key={index}>{part.content}</span>
                                         ) : (

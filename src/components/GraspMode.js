@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getAllFlashcards } from '../api/flashcardApi';
+import TextUtils from '../utils/TextUtils';
 import { Modal, ProgressBar } from 'react-bootstrap';
 import Confetti from 'react-confetti';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
@@ -56,30 +57,6 @@ const GraspMode = () => {
         return () => window.removeEventListener('keydown', handleKeyPress);
     }, [isCorrect, multipleChoiceMode, choices]);
 
-    const extractTextAndCode = (definition) => {
-        const codeRegex = /```(\w+)?\s*([\s\S]*?)```/g; // Regex to find content inside ``` ```
-        const parts = [];
-        let lastIndex = 0;
-
-        let match;
-        while ((match = codeRegex.exec(definition)) !== null) {
-            // Push text before the code block
-            if (lastIndex < match.index) {
-                parts.push({ type: 'text', content: definition.slice(lastIndex, match.index) });
-            }
-            // Push the code block with language
-            parts.push({ type: 'code', language: match[1], content: match[2] });
-            lastIndex = match.index + match[0].length; // Update the last index to the end of the current match
-        }
-
-        // Push any remaining text after the last code block
-        if (lastIndex < definition.length) {
-            parts.push({ type: 'text', content: definition.slice(lastIndex) });
-        }
-
-        return parts; // Return array of parts
-    };
-
     const calculateProgress = () => {
         const masteredFlashcards = Object.values(attemptedFlashcards).filter(attempt => attempt.correct >= 3);
         const progress = (masteredFlashcards.length / flashcards.length) * 100;
@@ -131,7 +108,7 @@ const GraspMode = () => {
     const updateAttemptedFlashcards = (flashcardId, isCorrect) => {
         const currentStats = attemptedFlashcards[flashcardId];
         const newStats = {
-            correct: isCorrect ? currentStats.correct + 1 : currentStats.correct,
+            correct: isCorrect ? currentStats.correct + 1 : currentStats.correct - 1,
             attempts: currentStats.attempts + 1,
         };
 
@@ -199,7 +176,7 @@ const GraspMode = () => {
             <div className="card p-4 mt-4">
                 <h3>What is the term for this definition:</h3>
                 <h4 className="text-primary">
-                    {extractTextAndCode(currentFlashcard.definition).map((part, index) => (
+                    {TextUtils.extractTextAndCode(currentFlashcard.definition).map((part, index) => (
                         part.type === 'text' ? (
                             <span key={index}>{part.content}</span>
                         ) : (

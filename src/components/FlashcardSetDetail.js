@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { getFlashcardSetById, deleteFlashcardSet, updateFlashcardSet } from '../api/flashcardSetApi';
 import { getAllFlashcards, createFlashcard, updateFlashcard, deleteFlashcard } from '../api/flashcardApi';
+import TextUtils from '../utils/TextUtils';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { materialOceanic } from 'react-syntax-highlighter/dist/esm/styles/prism'; // Dark mode style
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -101,31 +102,6 @@ const FlashcardSetDetail = () => {
     const handleFlashcardDelete = async (flashcardId) => {
         await deleteFlashcard(id, flashcardId);
         setFlashcards(flashcards.filter(f => f.id !== flashcardId));
-    };
-
-    // Function to extract code and text from the definition
-    const extractTextAndCode = (definition) => {
-        const codeRegex = /```(\w+)?\s*([\s\S]*?)```/g; // Regex to find content inside ``` ```
-        const parts = [];
-        let lastIndex = 0;
-
-        let match;
-        while ((match = codeRegex.exec(definition)) !== null) {
-            // Push text before the code block
-            if (lastIndex < match.index) {
-                parts.push({ type: 'text', content: definition.slice(lastIndex, match.index) });
-            }
-            // Push the code block with language
-            parts.push({ type: 'code', language: match[1], content: match[2] });
-            lastIndex = match.index + match[0].length; // Update the last index to the end of the current match
-        }
-
-        // Push any remaining text after the last code block
-        if (lastIndex < definition.length) {
-            parts.push({ type: 'text', content: definition.slice(lastIndex) });
-        }
-
-        return parts; // Return array of parts
     };
 
     return (
@@ -238,7 +214,7 @@ const FlashcardSetDetail = () => {
                                             {flashcard.term}
                                         </div>
                                         <div className="col-md-5 flashcard-definition">
-                                            {extractTextAndCode(flashcard.definition).map((part, index) => (
+                                            {TextUtils.extractTextAndCode(flashcard.definition).map((part, index) => (
                                                 part.type === 'text' ? (
                                                     <span key={index}>{part.content}</span>
                                                 ) : (
