@@ -5,7 +5,7 @@ import { Modal, ProgressBar } from 'react-bootstrap';
 import Confetti from 'react-confetti';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { atomDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import {materialOceanic} from "react-syntax-highlighter/dist/esm/styles/prism";
 
 const GraspMode = () => {
     const { id } = useParams();
@@ -203,7 +203,7 @@ const GraspMode = () => {
                         part.type === 'text' ? (
                             <span key={index}>{part.content}</span>
                         ) : (
-                            <SyntaxHighlighter key={index} language={part.language} style={atomDark}>
+                            <SyntaxHighlighter key={index} language={part.language} style={materialOceanic}>
                                 {part.content}
                             </SyntaxHighlighter>
                         )

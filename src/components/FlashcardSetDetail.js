@@ -3,7 +3,7 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import { getFlashcardSetById, deleteFlashcardSet, updateFlashcardSet } from '../api/flashcardSetApi';
 import { getAllFlashcards, createFlashcard, updateFlashcard, deleteFlashcard } from '../api/flashcardApi';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism'; // Dark mode style
+import { materialOceanic } from 'react-syntax-highlighter/dist/esm/styles/prism'; // Dark mode style
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './FlashcardSetDetail.css';
 
@@ -133,7 +133,26 @@ const FlashcardSetDetail = () => {
             {flashcards.length > 0 ? (
                 <Link to={`/grasp/${id}`} className="btn btn-primary">Grasp</Link>
             ) : (
-                <button className="btn btn-primary" disabled>Grasp</button>
+                <div>
+                    <button className="btn btn-primary" disabled>Grasp</button>
+                    <br />
+                    <small className="text-muted">Grasp will unlock when you have at least one flashcard</small>
+                </div>
+            )}
+            {flashcards.length > 0 ? (
+                <Link
+                    to={`/cards/${id}`}
+                    className="btn btn-primary ms-2"
+                    state={{flashcards}} // Pass flashcards as state to the CardsShow route
+                >
+                    Study Flashcards
+                </Link>
+            ) : (
+                <div>
+                    <button className="btn btn-primary" disabled>Study Flashcards</button>
+                    <br/>
+                    <small className="text-muted">Add some flashcards to start studying!</small>
+                </div>
             )}
             <div className="d-flex justify-content-between">
                 <div>
@@ -223,7 +242,7 @@ const FlashcardSetDetail = () => {
                                                 part.type === 'text' ? (
                                                     <span key={index}>{part.content}</span>
                                                 ) : (
-                                                    <SyntaxHighlighter key={index} language={part.language} style={atomDark}>
+                                                    <SyntaxHighlighter key={index} language={part.language} style={materialOceanic}>
                                                         {part.content}
                                                     </SyntaxHighlighter>
                                                 )

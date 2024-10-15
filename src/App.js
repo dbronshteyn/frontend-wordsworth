@@ -5,6 +5,7 @@ import About from './components/About';
 import Settings from './components/Settings';
 import FlashcardSetDetail from './components/FlashcardSetDetail';
 import GraspMode from './components/GraspMode';
+import CardsShow from './components/CardsShow';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
             <Route path="/settings" element={<Settings />} />
             <Route path="/set/:id" element={<FlashcardSetDetail />} />
             <Route path="/grasp/:id" element={<GraspMode />} />
+            <Route path="/cards/:id" element={<CardsShow />} />
           </Routes>
         </div>
       </Router>

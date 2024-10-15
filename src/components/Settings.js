@@ -4,17 +4,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Modal, Button } from 'react-bootstrap';
 
 function Settings() {
-    const [darkMode, setDarkMode] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [notification, setNotification] = useState('');
     const [showModal, setShowModal] = useState(false);
     const [flashcardSets, setFlashcardSets] = useState([]);
-
-    const toggleDarkMode = () => {
-        setDarkMode(!darkMode);
-        document.body.classList.toggle('bg-dark', darkMode);
-        document.body.classList.toggle('text-light', darkMode);
-    };
 
     const fetchFlashcardSets = async () => {
         const sets = await getAllFlashcardSets();
