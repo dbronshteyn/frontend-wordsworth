@@ -1,6 +1,10 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+/**
+ * An About page for the application
+ */
+
 function About() {
     return (
         <div className="container mt-5">
@@ -34,9 +38,6 @@ function About() {
                             <strong>Delete All Flashcard Sets:</strong> Want a fresh start? Easily delete all your flashcard sets from the settings page with a simple confirmation.
                         </li>
                         <li className="list-group-item">
-                            <strong>Feedback Animations:</strong> Enjoy smooth animations that provide visual feedback as you study, enhancing the learning experience without being distracting.
-                        </li>
-                        <li className="list-group-item">
                             <strong>Code Snippet Functionality:</strong> Perfect for tech enthusiasts, you can include code snippets in your flashcards to aid in programming language studies. Format your snippets like this:
                             <pre className="bg-light p-2 mt-2 rounded">
                                 <code>
@@ -47,11 +48,16 @@ function About() {
                             </pre>
                             Use this syntax to study languages like Python, Java, and HTML. Your code will be syntax-highlighted in study mode, making technical learning much more efficient.
                         </li>
+                        <li className="list-group-item">
+                            <strong>Import Flashcard Sets:</strong> Save time by importing flashcard sets from CSV files. Simply upload your file, and Wordsworth will create a new set with your data.
+                        </li>
                     </ul>
 
                     <h2 className="mt-5">Why "Wordsworth"?</h2>
                     <p>
                         Wordsworth was created to combine my passion for software development with my need for effective study tools. This project serves as both a personal learning experience in modern web technologies and a practical application that I use for studying in college.
+
+                        The name "Wordsworth" was inspired by the famous poet William Wordsworth, as I wanted a scholarly and literary reference to reflect the app's educational purpose. As an avid reader, I found this name fitting for a tool designed to help expand vocabulary and knowledge.
                     </p>
 
                     <div className="text-center mt-5">

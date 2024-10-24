@@ -3,7 +3,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import { getAllFlashcardSets, createFlashcardSet } from '../api/flashcardSetApi';
 import Papa from 'papaparse';  // Import PapaParse
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './Home.css';
+import '../styles/Home.css';
+
+/**
+ * Home component to display all flashcard sets.
+ */
 
 function Home() {
     const [flashcardSets, setFlashcardSets] = useState([]);

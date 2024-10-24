@@ -8,6 +8,11 @@ import TextUtils from "../utils/TextUtils";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import {materialOceanic} from "react-syntax-highlighter/dist/esm/styles/prism";
 
+/**
+ * Component to display flashcards and allow the user to flip
+ * between the term and definition.
+ */
+
 const CardsShow = () => {
     const { id } = useParams();
     const [flashcardSet, setFlashcardSet] = useState(null);
@@ -28,18 +33,14 @@ const CardsShow = () => {
         fetchFlashcards();
     }, [id]);
 
-    // Flip the card
     const handleFlip = () => {
         setIsFlipped(!isFlipped);
     };
 
-    // Go to the next card
     const handleNextCard = () => {
-        //setIsFlipped(false);
         setCurrentCardIndex((prevIndex) => (prevIndex + 1) % flashcards.length);
     };
 
-    // Go to the previous card
     const handlePrevCard = () => {
         setIsFlipped(false);
         setCurrentCardIndex((prevIndex) => (prevIndex - 1 + flashcards.length) % flashcards.length);
@@ -54,7 +55,6 @@ const CardsShow = () => {
     return (
 
         <Container className="d-flex flex-column align-items-center mt-4">
-            {/* Flashcard Set Name */}
             <Row>
                 <Col className="text-center">
                     <h1>{flashcardSet?.name}</h1>
@@ -66,14 +66,12 @@ const CardsShow = () => {
                 </Col>
             </Row>
             <Row className="mb-3">
-                {/* Previous Card Button */}
                 <Col xs={1} className="d-flex align-items-center justify-content-center">
                     <Button variant="outline-secondary" onClick={handlePrevCard}>
                         &larr;
                     </Button>
                 </Col>
 
-                {/* Flashcard */}
                 <Col xs={10} className="d-flex justify-content-center">
                     <div
                         className="flashcard"
@@ -142,7 +140,6 @@ const CardsShow = () => {
                     </div>
                 </Col>
 
-                {/* Next Card Button */}
                 <Col xs={1} className="d-flex align-items-center justify-content-center">
                     <Button variant="outline-secondary" onClick={handleNextCard}>
                         &rarr;
@@ -150,7 +147,6 @@ const CardsShow = () => {
                 </Col>
             </Row>
 
-            {/* Index of Current Card / Total Cards */}
             <Row className="mt-3">
                 <Col className="text-center">
                     <p>{currentCardIndex + 1} / {flashcards.length}</p>

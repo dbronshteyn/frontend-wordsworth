@@ -3,6 +3,11 @@ import { getAllFlashcardSets, deleteAllFlashcardSets } from '../api/flashcardSet
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Modal, Button } from 'react-bootstrap';
 
+
+/**
+ * Settings component to manage user settings.
+ */
+
 function Settings() {
     const [isLoading, setIsLoading] = useState(false);
     const [notification, setNotification] = useState('');
@@ -40,17 +45,6 @@ function Settings() {
     return (
         <div className="container mt-5">
             <h1>Settings</h1>
-            {/*<div className="form-check">*/}
-            {/*    <input*/}
-            {/*        className="form-check-input"*/}
-            {/*        type="checkbox"*/}
-            {/*        checked={darkMode}*/}
-            {/*        onChange={toggleDarkMode}*/}
-            {/*    />*/}
-            {/*    <label className="form-check-label">*/}
-            {/*        Dark Mode*/}
-            {/*    </label>*/}
-            {/*</div>*/}
             <button className="btn btn-danger mt-3" onClick={handleDeleteAllClick} disabled={isLoading}>
                 {isLoading ? 'Deleting...' : 'Delete All Flashcard Sets'}
             </button>

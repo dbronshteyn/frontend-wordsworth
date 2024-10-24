@@ -6,7 +6,7 @@ import TextUtils from '../utils/TextUtils';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { materialOceanic } from 'react-syntax-highlighter/dist/esm/styles/prism'; // Dark mode style
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './FlashcardSetDetail.css';
+import '../styles/FlashcardSetDetail.css';
 
 const FlashcardSetDetail = () => {
     const { id } = useParams();

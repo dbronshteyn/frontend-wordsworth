@@ -7,6 +7,12 @@ import FlashcardSetDetail from './components/FlashcardSetDetail';
 import GrokMode from './components/GrokMode';
 import CardsShow from './components/CardsShow';
 
+/**
+ * Main application component.
+ * @returns {Element}
+ * @constructor
+ */
+
 function App() {
   return (
       <Router>

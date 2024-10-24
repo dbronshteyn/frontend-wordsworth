@@ -1,4 +1,6 @@
-// src/utils/TextUtils.js
+/**
+ * Utility class to extract text and code blocks from a definition.
+ */
 
 class TextUtils {
     static extractTextAndCode(definition) {

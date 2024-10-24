@@ -2,12 +2,16 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getAllFlashcards } from '../api/flashcardApi';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './GrokMode.css';
+import '../styles/GrokMode.css';
 import TextUtils from "../utils/TextUtils";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import {materialOceanic} from "react-syntax-highlighter/dist/esm/styles/prism";
 import { Modal } from 'react-bootstrap';
 import Confetti from 'react-confetti';
+
+/**
+ * Grok mode component for studying flashcards.
+ */
 
 const GrokMode = () => {
     const { id } = useParams();
