@@ -28,10 +28,7 @@ function About() {
                             <strong>Delete Flashcards:</strong> Keep your flashcard sets tidy by removing any unwanted flashcards with a single click.
                         </li>
                         <li className="list-group-item">
-                            <strong>Study Mode (Grasp):</strong> Focus on mastering difficult terms as flashcards appear one at a time, allowing for concentrated study.
-                        </li>
-                        <li className="list-group-item">
-                            <strong>Multiple-Choice Quizzes:</strong> Reinforce your learning by selecting the correct term from four options, making studying engaging and varied.
+                            <strong>Study Mode (Grok):</strong> Focus on mastering difficult terms as flashcards appear one at a time, allowing for concentrated study.
                         </li>
                         <li className="list-group-item">
                             <strong>Delete All Flashcard Sets:</strong> Want a fresh start? Easily delete all your flashcard sets from the settings page with a simple confirmation.
@@ -51,31 +48,6 @@ function About() {
                             Use this syntax to study languages like Python, Java, and HTML. Your code will be syntax-highlighted in study mode, making technical learning much more efficient.
                         </li>
                     </ul>
-
-                    <h2 className="mt-5 mb-4">How to Use Wordsworth</h2>
-                    <ol className="list-group list-group-numbered">
-                        <li className="list-group-item">
-                            <strong>Create a Flashcard Set:</strong> Start by clicking "Create New Set" to organize your study material.
-                        </li>
-                        <li className="list-group-item">
-                            <strong>Add Flashcards:</strong> Populate your set with terms and definitions, with no limits on the number of cards.
-                        </li>
-                        <li className="list-group-item">
-                            <strong>Study Your Flashcards:</strong> Use the "Grasp" mode to focus on recalling terms based on definitions.
-                        </li>
-                        <li className="list-group-item">
-                            <strong>Try Multiple-Choice Mode:</strong> Challenge yourself with quizzes by selecting the correct term from four options.
-                        </li>
-                        <li className="list-group-item">
-                            <strong>Track Your Mastery:</strong> As you answer correctly, cards will be marked as "mastered," appearing less frequently in future sessions.
-                        </li>
-                        <li className="list-group-item">
-                            <strong>Edit or Delete Flashcards:</strong> Easily modify or remove flashcards as needed for effective study.
-                        </li>
-                        <li className="list-group-item">
-                            <strong>Reset Progress:</strong> If you want to start over, you can delete all your flashcard sets through the settings menu.
-                        </li>
-                    </ol>
 
                     <h2 className="mt-5">Why "Wordsworth"?</h2>
                     <p>

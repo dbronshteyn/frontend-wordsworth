@@ -4,7 +4,7 @@ import Home from './components/Home';
 import About from './components/About';
 import Settings from './components/Settings';
 import FlashcardSetDetail from './components/FlashcardSetDetail';
-import GraspMode from './components/GraspMode';
+import GrokMode from './components/GrokMode';
 import CardsShow from './components/CardsShow';
 
 function App() {
@@ -34,7 +34,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/set/:id" element={<FlashcardSetDetail />} />
-            <Route path="/grasp/:id" element={<GraspMode />} />
+            <Route path="/grok/:id" element={<GrokMode />} />
             <Route path="/cards/:id" element={<CardsShow />} />
           </Routes>
         </div>

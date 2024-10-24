@@ -107,12 +107,12 @@ const FlashcardSetDetail = () => {
     return (
         <div className="container mt-5">
             {flashcards.length > 0 ? (
-                <Link to={`/grasp/${id}`} className="btn btn-primary">Grasp</Link>
+                <Link to={`/grok/${id}`} className="btn btn-primary">Grok</Link>
             ) : (
                 <div>
-                    <button className="btn btn-primary" disabled>Grasp</button>
+                    <button className="btn btn-primary" disabled>Grok</button>
                     <br/>
-                    <small className="text-muted">Grasp will unlock when you have at least one flashcard</small>
+                    <small className="text-muted">Grok will unlock when you have at least one flashcard</small>
                 </div>
             )}
             {flashcards.length > 0 ? (
